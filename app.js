@@ -1,13 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const API = "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";
+    const API = "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";
     const inp = document.getElementById("inp");
     const images = document.querySelector(".images");
     const generateButton = document.getElementById("generateButton");
-    const logo = document.querySelector(".logo")
-
-    logo.onclick = () => {
-        this.location.reload()
-    }
+    
   
 
     const getImage = async () => {
