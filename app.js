@@ -1,14 +1,32 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const API = "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";
+    const API = "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";
     const inp = document.getElementById("inp");
     const images = document.querySelector(".images");
     const generateButton = document.getElementById("generateButton");
+  
+    const showLoadingIndicator = () => {
+        // Create a loading text element and append it to the images container
+        const loadingText = document.createElement("div");
+        loadingText.className = "loading-text";
+        loadingText.textContent = "Processing...";
+        images.appendChild(loadingText);
+      };
+    
+      const hideLoadingIndicator = () => {
+        // Remove the loading text element from the images container
+        const loadingText = document.querySelector(".loading-text");
+        if (loadingText) {
+          loadingText.remove();
+        }
+      };
     
   
-
     const getImage = async () => {
       // Disable the button during the fetch operation
       generateButton.disabled = true;
+  
+      // Show loading indicator
+      showLoadingIndicator();
   
       // Making request to OpenAI API
       const methods = {
@@ -29,6 +47,8 @@ document.addEventListener("DOMContentLoaded", function () {
   
         // Check if the response is successful
         if (!res.ok) {
+          const errorResponse = await res.json();
+          console.error('Error Response:', errorResponse);
           throw new Error(`HTTP error! Status: ${res.status}`);
         }
   
@@ -38,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Check if 'data' property is defined
         if (data.data) {
           // Clear existing images
-          images.innerHTML = "";
+          images.innerHTML = '';
   
           // Iterate over the images and create elements
           data.data.forEach(photo => {
@@ -55,10 +75,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       } catch (error) {
         console.error('Error:', error);
-      } 
-      
-      finally {
-        // Enable the button after the fetch operation is complete
+      } finally {
+        // Hide loading indicator and enable the button after the fetch operation is complete
+        hideLoadingIndicator();
         generateButton.disabled = false;
       }
     };

@@ -119,4 +119,7 @@ background: #1C1A1C;
 }
   
   
-  
+.loading-text{
+    color: white;
+    font-size: 20px;
+}
