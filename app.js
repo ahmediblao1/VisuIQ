@@ -3,7 +3,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const inp = document.getElementById("inp");
     const images = document.querySelector(".images");
     const generateButton = document.getElementById("generateButton");
+    const logo = document.querySelector(".logo")
+
+    logo.onclick = () => {
+        this.location.reload()
+    }
   
+
     const getImage = async () => {
       // Disable the button during the fetch operation
       generateButton.disabled = true;
@@ -53,7 +59,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       } catch (error) {
         console.error('Error:', error);
-      } finally {
+      } 
+      
+      finally {
         // Enable the button after the fetch operation is complete
         generateButton.disabled = false;
       }
