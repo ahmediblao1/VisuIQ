@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const API = "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";
+    const API = "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";
     const inp = document.getElementById("inp");
     const images = document.querySelector(".images");
     const generateButton = document.getElementById("generateButton");
