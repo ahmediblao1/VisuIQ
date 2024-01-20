@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const API = Opprocess.env.Openai_API_KEY;
+    const API = "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";
     const inp = document.getElementById("inp");
     const images = document.querySelector(".images");
     const generateButton = document.getElementById("generateButton");
