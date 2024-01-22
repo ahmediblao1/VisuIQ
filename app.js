@@ -12,14 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         images.appendChild(loadingText);
       };
     
-      const hideLoadingIndicator = () => {
-        // Remove the loading text element from the images container
-        const loadingText = document.querySelector(".loading-text");
-        if (loadingText) {
-          loadingText.remove();
-        }
-      };
-    
+     
   
     const getImage = async () => {
       // Disable the button during the fetch operation
